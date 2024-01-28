@@ -1,0 +1,80 @@
+input.ng-invalid 
+{
+    background-color: #eeeeee;
+}
+
+.table th:hover
+{
+    cursor: grab;
+}
+
+.table input
+{
+    width: 100%;
+}
+
+body{
+    background-color: rgb(212, 175, 247);
+    margin-left: 160px;
+}
+button{
+    background-color: rgb(240, 231, 173);
+    border-style:solid black 30px;
+    border-color: rgb(217, 207, 22);
+    border-width: 5px;
+    
+}
+.container{
+    align-items: center;
+    background-color: rgb(177, 123, 227);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 20px;
+    border: solid rgb(231, 231, 24) 4px;
+}
+.button2{
+    background-color: rgb(240, 231, 173);
+    border-style:solid black 30px;
+    border-color: rgb(217, 207, 22);
+    border-width: 5px;
+    margin-left: 20px;
+}
+td{
+    font-size: 15px;
+    font-family: 'Times New Roman', Times, serif;
+}
+th{
+    font-size: 18px;
+    font-family: 'Times New Roman', Times, serif;
+}
+div{
+    font-size: 18px;
+    font-family: 'Times New Roman', Times, serif;
+}
+h5{
+    font-size: 20px;
+    font-style: italic;
+    border: solid rgb(217, 207, 22) 4px;
+    font-family: 'Times New Roman', Times, serif;
+    margin-left: 400px;
+    margin-right: 400px;
+    padding: 5px;
+    text-align: center;
+}
+h3{
+    font-size: 20px;
+    font-style: italic;
+    border: solid rgb(217, 207, 22) 4px;
+    font-family: 'Times New Roman', Times, serif;
+    margin-left: 400px;
+    margin-right: 400px;
+    padding: 5px;
+    text-align: center;
+}
+.pretraga{
+    margin-left: 400px;
+    width: 320px;
+    padding: 5px;
+}

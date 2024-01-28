@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<script src="addressBookController.js"></script>
+<title>Lista kontakta</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+<body ng-app="myApp" ng-init='showornot="false"'>
+    
+<div ng-controller="myCtrl">
+    
+
+    <div class="container">
+    <table class="table container">
+        <thead class="container">
+            <tr>
+                <th class="col-xs-2 text-center" ng-click="orderByMe('ime')">Ime</th>
+                <th class="col-xs-2 text-center" ng-click="orderByMe('prezime')">Prezime</th>
+                <th class="col-xs-2 text-center" ng-click="orderByMe('broj')">Broj telefona</th>
+                <th class="col-xs-4 text-center" ng-click="orderByMe('imejl')">Email adresa</th>
+                <th class="col-xs-1" ></th>
+            </tr>
+        </thead>
+        <tbody class="row text-right" ng-repeat="x in lista | orderBy:myOrderBy | filter:test" ng-model="tabela" id="tabela" >
+            <tr>
+                <td class="col-xs-2" ng-model="ime">
+                    <input class='text-right' type="text" readonly value="{{x.ime}}"></td>
+                <td class="col-xs-2" ng-model="prezime">
+                    <input class='text-right' type="text" readonly value="{{x.prezime}}"></td>
+                <td class="col-xs-2" ng-model="broj">
+                    <input class='text-right' type="text" readonly value="{{x.broj}}"></td>
+                <td class="col-xs-4" ng.model="imejl">
+                    <input class='text-right' type="text" readonly value="{{x.imejl}}"></td>
+                <td class="col-xs-1" ><button class="object-fit-xs-contain"  ng-click="edit($index)"width="40%" height="40%" alt="edit">Ažuriraj</button></td>
+                <td class="col-xs-1" ><button class="object-fit-xs-contain" width="40%" height="40%" ng-click="delete($index)">Ukloni</button></td>
+                
+            </tr>
+        </tbody>
+      </table>
+      <div>
+        <h5>Pretraga</h5>
+        <input class="pretraga" type="text" ng-model="test">
+        </div>
+</div>
+
+<form name="myForm" class="container" >
+    <h3>Dodavanje novog kontakta</h3>
+    <div class="text-right">
+        <table>
+            <tc class="container">
+            </tc>
+            <tc>
+                <td >Ime</td>
+                <td>
+                    <input type="text" name="Ime" ng-model="Ime" required><br>
+                    <span style="color:red" ng-show="myForm.Ime.$dirty && myForm.Ime.$invalid">
+                        <span ng-show="myForm.Ime.$error.required">Unesi svoje ime</span>
+                    </span>
+                </td>
+                
+            </tc>
+            <tc>
+                <td>Prezime</td>
+                <td>
+                    <input type="text" name="Prezime" ng-model="Prezime" required><br>
+                    <span style="color:red" ng-show="myForm.Prezime.$dirty && myForm.Prezime.$invalid">
+                        <span ng-show="myForm.Prezime.$error.required">Unesi svoje prezime</span>
+                    </span>
+                </td>
+            </tc>
+            <tc>
+                <td>Broj telefona</td>
+                <td>
+                    <input type="text" name="Telefon" ng-model="Telefon" required minlength="9" maxlength="12"><br>
+                    <span style="color:red" ng-show="myForm.Telefon.$dirty && myForm.Telefon.$invalid">
+                        <span ng-show="myForm.Telefon.$error.required">Unesi svoj broj telefona</span>
+                    </span>
+                </td>
+            </tc>
+            <tc>
+                <td>Email</td>
+                <td>
+                    <input type="text" name="Email" ng-model="Email" required><br>
+                    <span style="color:red" ng-show="myForm.Email.$dirty && myForm.Email.$invalid">
+                        <span ng-show="myForm.Email.$error.required">Unesi svoju email adresu</span>
+                    </span>
+                </td>
+            </tc>
+            <tc>
+                <td></td>
+                <td>
+                    <input class="button2" type="button" value="Dodaj kontakt" ng-click="addRecord()" ><br>
+                    <span ng-show="provera&&
+                    (myForm.Ime.$dirty && myForm.Ime.$invalid ||  
+                    myForm.Prezime.$dirty && myForm.Prezime.$invalid ||
+                    myForm.Telefon.$dirty && myForm.Telefon.$invalid ||
+                    myForm.Email.$dirty && myForm.Email.$invalid)" style="color:red">
+                        Potrebno je popuniti sva polja!
+                </span>
+                </td>
+            </tc>
+        </table>
+    </div>
+</form>
+
+</body>
+</html>
